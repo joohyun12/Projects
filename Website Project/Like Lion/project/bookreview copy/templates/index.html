@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Webpage Title -->
+    <title>CalBear</title>
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.css" rel="stylesheet" />
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.js"></script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <!-- 구글폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Acme&family=Alfa+Slab+One&family=Asap&family=Bai+Jamjuree&family=Be+Vietnam+Pro:wght@500&family=IBM+Plex+Mono&family=Jua&family=Lato:wght@100;300&family=Noto+Sans+JP&family=Nunito:wght@300;400;700&family=Overpass&family=Paytone+One&family=Prompt&family=Raleway:wght@100;800&family=Roboto:wght@100&family=Signika+Negative:wght@500&family=Source+Sans+Pro&family=Ubuntu&family=Yantramanav&display=swap"
+        rel="stylesheet">
+
+
+
+    <style type="text/css">
+        * {
+            font-family: 'Raleway', sans-serif;
+            font-family: 'Alfa Slab One', cursive;
+        }
+
+        .navigationbuttonsize {
+            font-size: 20px
+        }
+
+        .wrap {
+            width: 500px;
+            margin: auto;
+        }
+
+        .headerimage {
+            background-image: url('../static/UL.jpg');
+            background-size: cover;
+            background-position: right;
+            width: 800px;
+            height: 620px;
+        }
+
+        .info {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .user-info {
+            margin: 20px 5px auto 5px;
+        }
+
+        h1,
+        h5 {
+            display: inline;
+        }
+
+        .order {
+            text-align: center;
+        }
+
+        .orders {
+            margin-top: 100px;
+        }
+
+        .meta_info {
+            width: 20%;
+        }
+
+        .navbarflex {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .center {
+            vertical-align: middle;
+        }
+
+        .buttoncolor {
+            background-color: #fabb41;
+        }
+
+        .alignright {
+            margin-left: 50%
+        }
+
+        .secondpicture {
+            background-image: url(../static/StudyingIllus.png);
+            background-size: cover;
+            background-position: left;
+            width: 600px;
+            height: 500px;
+            margin: 20px;
+            margin-left: 40px
+        }
+
+        .backgroundaccent {
+            background-image: url(../static/test-13.png);
+            background-size: 1500px 1100px;
+            background-repeat: no-repeat;
+
+        }
+
+        .center {
+            text-align: center;
+            width: 100%;
+            overflow: auto;
+        }
+
+        .cardimagescale {
+            height: 100px;
+            width: 100px;
+            margin: auto;
+            margin-top: 30px;
+            margin-bottom: 20px
+        }
+
+        .buttonstyle {
+            font-family: 'Nunito', sans-serif;
+            background-color: #b6efbb;
+            border-color: #b6efbb;
+            margin-bottom: 20px;
+            /* text-transform:Capitalize;  */
+            color: black
+        }
+
+        .coursecard {
+            font-family: 'Raleway', sans-serif;
+
+            margin-top: 8px
+        }
+
+        .cardformat {
+            border-radius: 20px;
+            height: 300px;
+        }
+
+        .cardicon {
+            height: 40px;
+            margin-right: 5px;
+        }
+    </style>
+
+    <script>
+        function navigateforum() {
+            console.log("here");
+            $.ajax({
+                type: "GET",
+                url: "/dashboard",
+                data: {},
+                success: function (response) {
+                    console.log("asdf");
+                }
+            })
+        }
+
+
+
+    </script>
+</head>
+
+
+<body>
+    <!--Landing Page -->
+    <!-- FIRST SECTION: Header + Navigation Bar -->
+    <div>
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-light" style="max-height: 100px">
+            <!-- Navbar content -->
+            <div>
+                <!-- Logo -->
+                <!-- <a class="navbar-brand center" href="#">
+                    <img src="../asset/Logo.png" width="70" height="70" alt="">
+                </a> -->
+                <!-- CalForum  -->
+                <ul class="navbar-nav mr-auto">
+                    <a class="navbar-brand"
+                        style="font-family: 'Raleway', sans-serif;font-size: 40px; margin-left: 20px; color: #3e4b9a;float:left; font-weight:bolder"
+                        href="#">CalForum</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <li class="nav-item dropdown">
+                        <h4 class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            style="font-family: 'Raleway', sans-serif;float:left;margin-left: 20px;padding-top:24px">
+                            Courses
+                        </h4>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" style="font-family: 'Raleway', sans-serif;" href="#">Math</a>
+                            <a class="dropdown-item" style="font-family: 'Raleway', sans-serif;" href="#">Life
+                                Sciences</a>
+                            <a class="dropdown-item" style="font-family: 'Raleway', sans-serif;" href="#">Computer
+                                Science</a>
+                            <a class="dropdown-item" style="font-family: 'Raleway', sans-serif;"
+                                href="#">Engineering</a>
+                            <a class="dropdown-item" style="font-family: 'Raleway', sans-serif;" href="#">Humanities</a>
+                            <a class="dropdown-item" style="font-family: 'Raleway', sans-serif;" href="#">Physics</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div style="margin-left:45%" class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Login & Signup -->
+                <ul class="navbar-nav mr-auto" style="font-family: 'Ubuntu', sans-serif; margin-right: 10px">
+                    <button type="button" class="btn btn-warning" style="width: 150px; height: 50px; background-color: #fabb41
+                    ; border-radius: 15px">Log In</button>
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link navigationbuttonsize" href="#"><span class="sr-only">(current)</span></a>
+                        </li>
+                        <button type="button" class="btn btn-warning"
+                            style="width: 150px; height: 50px;font-family: 'Ubuntu', sans-serif;background-color: #fabb41; border-radius: 15px">
+                            Sign Up </button>
+                    </ul>
+                </ul>
+            </div>
+
+        </nav>
+        <div style="margin-top: 5%;"></div>
+        <!-- Header  -->
+        <div class="row">
+            <div class="column" style="width: 40%; margin-top: 80px">
+
+                <h1 style="font-size: 100px; margin-left: 160px; margin-top: 150px;text-align: center;">Global</h1>
+
+                <div></div>
+                <h1 style="font-size: 100px; margin-left: 110px; margin-top: 800px; padding-top: 20px;">Platform</h1>
+                <div></div>
+                <h1 class="navigationbuttonsize" style="font-size: 30px; margin-left: 120px; color: #1c325e">Made for
+                    Berkeley Students
+                </h1>
+                <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4"
+                    style="width: 400px;margin-left: 130px; margin-top: 30px;">
+                    <div class="input-group"
+                        style="font-family: 'Raleway', sans-serif;border-radius: 15px;align-items: center; font-weight: bolder;">
+                        <input style="width: 100px;font-weight:bold;font-family: 'Raleway', sans-serif;" type="search" placeholder="Search Courses"
+                            aria-describedby="button-addon1" class="form-control border-0 bg-light">
+                        <div class="input-group-append">
+                            <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i
+                                    class="fa fa-search" style="color: #7492d0"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- IMAGE -->
+            <div class="column headerimage" style="width:60%">
+            </div>
+        </div>
+    </div>
+
+    <!-- End of Landing Page -->
+    <!-- Course catalog section -->
+    <div>
+        <div style="margin-top:100px;margin-bottom:100px"></div>
+        <div
+            style="font-family: 'Raleway', sans-serif;font-size:40px; text-align: center;height: 70px; font-weight: bold; ">
+            Explore Courses
+        </div>
+        <div style="font-family: 'Raleway', sans-serif;font-size:20px; text-align: center; margin-bottom: 70px">
+            Hundreds of Subjects to search from
+        </div>
+        <!-- Cards -->
+
+        <div class="row" style="margin-left:7%;margin-right:7%; margin-bottom: 2%">
+            <div class="card-deck">
+                <div class="card cardformat shadow-sm p-3 mb-5 bg-white rounded" style="max-height:270px">
+                    <div class="card-body coursecard">
+                        <img class="cardicon" src="{{url_for('static', filename='coding.png')}}">
+                        <h5 class="card-title" style="font-family: 'Source Sans Pro', sans-serif; font-weight:bold">
+                            Computer Science
+                        </h5>
+                        <p class="card-text" style="margin-left: 47px;margin-bottom:9px;margin-top:10px"><a href="#"
+                                class="card-link" style="font-family: 'Lato', sans-serif;color:gray">CS 61A</a></p>
+                        <p class="card-text" style="margin-left: 47px;margin-bottom:9px"><a href="#" class="card-link"
+                                style="font-family: 'Lato', sans-serif;color:gray;">CS 61B</a></p>
+                        <p class="card-text" style="margin-left: 47px;margin-bottom:9px"><a href="#" class="card-link"
+                                style="font-family: 'Lato', sans-serif;color:gray;">CS 70</a></p>
+                        <p class="card-text" style="margin-left: 47px"><a href="#" class="card-link"
+                                style="font-family: 'Lato', sans-serif;color:gray;">CS 88</a></p>
+                    </div>
+                </div>
+
+                <div class="card cardformat shadow-sm p-3 mb-5 bg-white rounded" style="max-height:270px">
+                    <div class="card-body coursecard">
+                        <img class="cardicon" src="{{url_for('static', filename='biology.png')}}">
+                        <h5 class="card-title" style="font-family: 'Source Sans Pro', sans-serif; font-weight:bold">
+                            Biology & MCB
+                        </h5>
+                        <p class="card-text" style="margin-left: 47px;margin-bottom:9px;margin-top:10px"><a href="#"
+                                class="card-link" style="font-family: 'Lato', sans-serif;color:gray">BIO 1A</a></p>
+                        <p class="card-text" style="margin-left: 47px;margin-bottom:9px"><a href="#" class="card-link"
+                                style="font-family: 'Lato', sans-serif;color:gray;">MCB 32</a></p>
+                        <p class="card-text" style="margin-left: 47px;margin-bottom:9px"><a href="#" class="card-link"
+                                style="font-family: 'Lato', sans-serif;color:gray;">MCB 102</a></p>
+                        <p class="card-text" style="margin-left: 47px"><a href="#" class="card-link"
+                                style="font-family: 'Lato', sans-serif;color:gray;">MCB 130</a></p>
+                    </div>
+                </div>
+
+                <div class="card cardformat shadow-sm p-3 mb-5 bg-white rounded" style="max-height:270px">
+                    <div class="card-body coursecard">
+                        <img class="cardicon" src="{{url_for('static', filename='chemistry.png')}}">
+                        <h5 class="card-title" style="font-family: 'Source Sans Pro', sans-serif; font-weight:bold">
+                            Chemistry
+                        </h5>
+                        <p class="card-text" style="margin-left: 47px;margin-bottom:9px;margin-top:10px"><a href="#"
+                                class="card-link" style="font-family: 'Lato', sans-serif;color:gray">CHEM 1A</a></p>
+                        <p class="card-text" style="margin-left: 47px;margin-bottom:9px"><a href="#" class="card-link"
+                                style="font-family: 'Lato', sans-serif;color:gray;">CHEM 3A / CHEM 3B </a></p>
+                        <p class="card-text" style="margin-left: 47px;margin-bottom:9px"><a href="#" class="card-link"
+                                style="font-family: 'Lato', sans-serif;color:gray;">CHEM 8A</a></p>
+                        <p class="card-text" style="margin-left: 47px"><a href="#" class="card-link"
+                                style="font-family: 'Lato', sans-serif;color:gray;">CHEM 140</a></p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="row" style="margin-left:7%;margin-right:7%;">
+            <div class="card-deck">
+                <div class="card cardformat shadow-sm p-3 mb-5 bg-white rounded" style="max-height:270px">
+                    <div class="card-body coursecard">
+                        <img class="cardicon" src="{{url_for('static', filename='atom.png')}}">
+                        <h5 class="card-title" style="font-family: 'Source Sans Pro', sans-serif; font-weight:bold">
+                            Physics
+                        </h5>
+                        <p class="card-text" style="margin-left: 47px;margin-bottom:9px;margin-top:10px"><a href="#"
+                                class="card-link" style="font-family: 'Lato', sans-serif;color:gray">PHYSICS 7A & 7B</a></p>
+                        <p class="card-text" style="margin-left: 47px;margin-bottom:9px"><a href="#" class="card-link"
+                                style="font-family: 'Lato', sans-serif;color:gray;">PHYSICS 8A & 8B</a></p>
+                        <p class="card-text" style="margin-left: 47px;margin-bottom:9px"><a href="#" class="card-link"
+                                style="font-family: 'Lato', sans-serif;color:gray;">PHYSICS 100</a></p>
+                        <p class="card-text" style="margin-left: 47px"><a href="#" class="card-link"
+                                style="font-family: 'Lato', sans-serif;color:gray;">PHYSICS 290</a></p>
+                    </div>
+                </div>
+
+                <div class="card cardformat shadow-sm p-3 mb-5 bg-white rounded" style="max-height:270px">
+                    <div class="card-body coursecard">
+                        <img class="cardicon" src="{{url_for('static', filename='rocket-launch.png')}}">
+                        <h5 class="card-title" style="font-family: 'Source Sans Pro', sans-serif; font-weight:bold">
+                            Engineering
+                        </h5>
+                        <p class="card-text" style="margin-left: 47px;margin-bottom:9px;margin-top:10px"><a href="#"
+                                class="card-link" style="font-family: 'Lato', sans-serif;color:gray">MEC ENG C85</a></p>
+                        <p class="card-text" style="margin-left: 47px;margin-bottom:9px"><a href="#" class="card-link"
+                                style="font-family: 'Lato', sans-serif;color:gray;">MEC ENG 170</a></p>
+                        <p class="card-text" style="margin-left: 47px;margin-bottom:9px"><a href="#" class="card-link"
+                                style="font-family: 'Lato', sans-serif;color:gray;">ELEC ENG 16A</a></p>
+                        <p class="card-text" style="margin-left: 47px"><a href="#" class="card-link"
+                                style="font-family: 'Lato', sans-serif;color:gray;">ELEC ENG 100</a></p>
+                    </div>
+                </div>
+
+                <div class="card cardformat shadow-sm p-3 mb-5 bg-white rounded" style="max-height:270px">
+                    <div class="card-body coursecard">
+                        <img class="cardicon" src="{{url_for('static', filename='literature.png')}}">
+                        <h5 class="card-title" style="font-family: 'Source Sans Pro', sans-serif; font-weight:bold">
+                            English
+                        </h5>
+                        <p class="card-text" style="margin-left: 47px;margin-bottom:9px;margin-top:10px"><a href="#"
+                                class="card-link" style="font-family: 'Lato', sans-serif;color:gray">ENG R1A & R1B</a></p>
+                        <p class="card-text" style="margin-left: 47px;margin-bottom:9px"><a href="#" class="card-link"
+                                style="font-family: 'Lato', sans-serif;color:gray;">COMLIT 43 </a></p>
+                        <p class="card-text" style="margin-left: 47px;margin-bottom:9px"><a href="#" class="card-link"
+                                style="font-family: 'Lato', sans-serif;color:gray;">ENGLISH 190</a></p>
+                        <p class="card-text" style="margin-left: 47px"><a href="#" class="card-link"
+                                style="font-family: 'Lato', sans-serif;color:gray;">COMLIT 210</a></p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+    <!-- SECOND SECTION: About Us -->
+    <div>
+        <!-- Padding between first and second section -->
+
+
+        <!-- Insert background image here -->
+        <div class="backgroundaccent">
+            <div
+                style="font-family: 'Raleway', sans-serif;font-size:30px; text-align: center;height: 100px; margin-bottom: 10px;">
+
+            </div>
+
+            <!-- Start of Columns -->
+            <div class="row">
+                <!-- Left Section -->
+                <div class=column; style="width: 50%;max-width: 60%;">
+                    <div class="secondpicture">
+                    </div>
+                </div>
+                <!-- Right Section -->
+                <div class="column"
+                    style="font-family: 'Raleway', sans-serif;font-size: 40px; width: 50%; max-width: 40%">
+                    <div style="font-family: 'Raleway', sans-serif;font-size:4s0px; text-align: center;">
+                        A Platform where you can freely engage with classmates
+                    </div>
+                    <h4
+                        style=" text-align: center; font-family:'Raleway', sans-serif;;margin-top: 50px;margin-bottom:100px;">
+                        Tired of boring Canvas and piazza? 
+                        CalForum is all those platforms combined and much MORE! 
+                        The perfect place to find fellow classmates, guidance from Berkeley alumni graduates, and just rant about whatever you want to. Get honest opinions and advice about classes and majors here!
+                </h4>
+                </div>
+
+                <!--Find Out More + 3 Cards Section  -->
+
+                <div style="margin-top: 100px; margin-bottom: 100px">
+                    <div style="margin-left: 100px; margin-right: 100px">
+
+                        <div
+                            style="font-family: 'Raleway', sans-serif;margin-bottom: 30px;font-size: 50px; font-weight:bold">
+                            Find Out
+                            More</div>
+                        <!-- CARDS -->
+                        <div class="card-group">
+                            <div class="card " style="margin-right: 20px; border-radius: 15px">
+                                <img class="card-img-top cardimagescale"
+                                    src="{{url_for('static', filename='ForumIcon2.png')}}">
+                                <div class="card-body" style="margin-bottom: 50px;margin:auto; text-align: center;">
+                                    <h5 class="card-title">Course Forums</h5>
+                                    <p class="card-text" style="font-family: 'Nunito', sans-serif; margin-top: 10px">
+                                        Find discussions for hundreds of Berkeley classes here!</p>
+                                    <a href="/dashboard" class="btn btn-primary buttonstyle">Navigate to forums</a>
+                                    <!-- insert link here -->
+                                </div>
+                            </div>
+                            <div class="card" style="margin-right: 20px; border-radius: 15px">
+                                <img class="card-img-top cardimagescale"
+                                    src="{{url_for('static', filename='QnA.png')}}">
+                                <div class="card-body" style="margin-bottom: 50px;margin:auto; text-align: center;">
+                                    <h5 class="card-title">Question & Answers</h5>
+                                    <p class="card-text" style="font-family: 'Nunito', sans-serif; margin-top: 10px">Get
+                                        your immediate questions answered by experts and Berkeley Alumni</p>
+                                    <a href="#" class="btn btn-primary buttonstyle">Get Your Questions Answered</a>
+                                </div>
+                            </div>
+                            <div class="card" style=" border-radius: 15px">
+                                <img class="card-img-top cardimagescale"
+                                    src="{{url_for('static', filename='QuestionnA.png')}}">
+                                <div class="card-body" style="margin-bottom: 50px;margin:auto; text-align: center;">
+                                    <h5 class="card-title">Find a Tutor</h5>
+                                    <p class="card-text" style="font-family: 'Nunito', sans-serif; margin-top: 10px">
+                                        Find a suitable tutor amongst hundreds of experienced graduates and current
+                                        students</p>
+                                    <a href="#" class="btn btn-primary buttonstyle">Find a Tutor</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Row  -->
+        </div>
+        <!-- End of Backgroundaccent -->
+    </div>
+    <!-- End of Second Section -->
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <title>또또로 인형</title>
+    <style>
+        * {
+            font-family: 'Jua', sans-serif;
+        }
+
+        .wrap {
+            margin: 10px auto;
+            width: 500px
+        }
+        .important {
+            color: blue
+        }
+        .meta_info {
+            width: 20%;
+        }
+
+    </style>
+    <script>
+        function make_order() {
+            // 빈칸 있는 지 채크하기
+            let name = $("#input-name").val();
+            let amount = $("#input-amount").val();
+            let address = $("#input-address").val();
+            let phone = $("#input-phone").val();
+
+            if (name == ''){
+                alert('이름을 입력해주세요');
+                $('#input-name').focus();
+                return;
+            } else if (amount == '') {
+                alert('수량을 입력해주세요');
+                $('#input-amount').focus();
+                return;
+            } else if (address == '') {
+                alert('주소를 입력해주세요');
+                $('#input-address').focus();
+                return;
+            } else if (phone == ''){
+                alert('전화번호를 입력해주세요');
+                $('#input-phone').focus();
+                return;
+            } 
+            $.ajax({
+            type: "POST",
+            url: "/orders",
+            data: { 'name_give': name, 'amount_give': amount, 'address_give': address, 'phone_give': phone },
+            success: function(response) {
+                if (response['result'] == 'success') {
+                    alert(response['msg']);
+                    window.location.reload();
+                }
+            }
+        })
+        $(document).ready(function () {
+            $('#orders-box').html('');
+            listing();
+        });
+    }
+        function listing() {
+            $.ajax({
+                type: "GET",
+                url: "/orders",
+                data: {},
+                success: function (response) {
+                    if (response['result'] == 'success') {
+                        let orders = response['orders'];
+                        for (let i = 0; i < orders.length; i++) {
+                            make_card(orders[i]['name'], orders[i]['amount'], orders[i]['address'], orders[i]['phone']);
+                        }
+                    } else {
+                        alert('오더를 받아오지 못했습니다');
+                    }
+                }   
+            })
+        }
+        function make_card(name, amount, address, phone) {
+            let temp_html = `<tr>
+                                <td>${name}</td>
+                                <td>${amount}</td>
+                                <td>${address}</td>
+                                <td>${phone}</td>
+                            </tr>`;
+            $('#orders-box').append(temp_html);
+        }
+
+        function b2() {
+            $.ajax ({
+                type: "GET",
+                url: "https://api.manana.kr/exchange/rate.json",
+                data: {},
+                success: function(response) {
+                    let USDKRW_data = response[1]
+                    ex_rate = USDKRW_data["rate"]
+                    $("#currency").append("달러-원 환율: " + ex_rate);
+
+                }
+            })
+        }
+    </script>
+</head>
+<body class = "wrap" onload="b2()">
+
+    <!-- header 사진 -->
+    <hr class = "image">
+        <img src = "https://ae01.alicdn.com/kf/HTB112SKO4TpK1RjSZFMq6zG_VXan/Kawaii-Soft-Jumbo-Totoro-Plush-Toy-Giant-Anime-Totoro-Doll-Toys-Cartoon-Stuffed-Pillow-for-Children.jpg_Q90.jpg_.webp" width=500px height = 400px />
+
+    <!-- 파는 아이템 -->
+    <div class = >
+        <h1>토토로 인형</h1>
+
+</div>
+    <div class = >
+        <h5>가격: $199.99</h5>
+
+    <!-- 달러, 원 환율 -->
+
+
+    </div>
+<div>
+    <p>이 토토로 인형을 갖고 있으면 꿈에 토토로가 나타납니다 ^-^</p>
+
+    <div class = "important">
+        <h5 id = "currency"> </h5>
+
+    </div>
+
+</div id = "body_text">
+
+<!-- 주문자 이름 -->
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+        <span class="input-group-text" >주문자 이름</span>
+        </div>
+        <input id="input-name" type="text" class="form-control" placeholder="이름" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+
+<!-- 수량-->
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">수량</label>
+        </div>
+        <select class="custom-select" id="input-amount" >
+          <option selected>수량 선택해주세요</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+
+<!-- 주소  -->
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+        <span class="input-group-text">주소</span>
+        </div>
+        <input id = "input-address" type="text" class="form-control" placeholder="주소" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+<!-- 전화번호 -->
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+        <span class="input-group-text">전화번호</span>
+        </div>
+        <input id = "input-phone" type="number" class="form-control" placeholder="(000)-000-0000" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+<!-- button -->
+    <div class = "wrap"> 
+        <button id = "button1" onclick = "make_order()" type="button" class="btn btn-primary">주문하기</button>
+    </div>
+    <div class="orders">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="meta_info" scope="col">Name</th>
+                    <th class="meta_info" scope="col">Amount</th>
+                    <th class="meta_info" scope="col">Address</th>
+                    <th scope="col">Phone</th>
+                </tr>
+            </thead>
+            <tbody id="orders-box">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
